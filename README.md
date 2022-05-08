@@ -1,4 +1,16 @@
-# SzonyegWebshopFinal
+# SzonyegWebshop
+
+##Szia Kedves Kolléga!
+##Egy kis segítség a javításhoz:
+
+###Futási Hiba: nincs
+###Fordítási Hiba: nincs
+###stb
+###stb
+###stb
+###stb
+###stb
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
