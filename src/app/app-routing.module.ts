@@ -9,7 +9,7 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
 const routes: Routes = [  {
   path: '',
   pathMatch: 'full',
-  redirectTo: 'home',
+  redirectTo: 'login',
 },
   {
     path: 'main',

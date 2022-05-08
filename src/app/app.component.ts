@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
 import {BreakpointObserver} from '@angular/cdk/layout';
+import {AuthService} from "./shared/services/auth.service";
 
 
 
@@ -12,9 +13,17 @@ import {BreakpointObserver} from '@angular/cdk/layout';
 export class AppComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
+  loggedInUser?: firebase.default.User | null;
 
-  constructor(private observer: BreakpointObserver) {
+  constructor(private observer: BreakpointObserver, private authService: AuthService) {
+  }
 
+  ngOnInit(){
+    this.authService.isUserLoggedIn().subscribe(user => {
+      this.loggedInUser = user;
+    }, error => {
+      console.error(error)
+    })
   }
 
   ngAfterViewInit(){
@@ -26,6 +35,14 @@ export class AppComponent {
         this.sidenav.mode = 'side';
         this.sidenav.open();
       }
+    });
+  }
+
+  logout(){
+    this.authService.logout().then(() => {
+      console.log('Logged out.');
+    }).catch(error => {
+      console.error(error);
     });
   }
 }

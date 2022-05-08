@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "szonyeg-webshop-final:build:production",
+            "firebaseProject": "szonyeg-webshop",
+            "firebaseHostingSite": "szonyeg-webshop"
+          }
         }
       }
     }

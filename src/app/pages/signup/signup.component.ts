@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-signup',
@@ -19,17 +20,26 @@ export class SignupComponent implements OnInit {
     })
   });
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
     console.log(this.signUpForm.value);
+    this.authService.signup(this.signUpForm.get('email')?.value, this.signUpForm.get('password')?.value).then(cred => {
+      console.log(cred);
+    }).catch(error => {
+      console.error(error);
+    });
   }
 
   goBack() {
     this.location.back();
+  }
+
+  logout(){
+
   }
 
 }
