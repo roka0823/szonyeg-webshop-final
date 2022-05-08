@@ -5,6 +5,7 @@ import {MainComponent} from "./pages/main/main.component";
 import {AboutComponent} from "./pages/about/about.component";
 import {HelpComponent} from "./pages/help/help.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
+import { AuthGuard } from "./shared/services/auth.guard";
 
 const routes: Routes = [  {
   path: '',
@@ -14,10 +15,12 @@ const routes: Routes = [  {
   {
     path: 'main',
     component: MainComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'about',
