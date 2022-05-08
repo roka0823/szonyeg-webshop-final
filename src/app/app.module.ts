@@ -40,6 +40,7 @@ import {AngularFireModule} from "@angular/fire/compat";
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
+    //@ts-ignore
     AngularFireModule.initializeApp(environment.firebase),
     //provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

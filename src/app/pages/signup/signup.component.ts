@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {AuthService} from "../../shared/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +21,7 @@ export class SignupComponent implements OnInit {
     })
   });
 
-  constructor(private location: Location, private authService: AuthService) { }
+  constructor(private location: Location, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +30,7 @@ export class SignupComponent implements OnInit {
     console.log(this.signUpForm.value);
     this.authService.signup(this.signUpForm.get('email')?.value, this.signUpForm.get('password')?.value).then(cred => {
       console.log(cred);
+      this.router.navigateByUrl("/main");
     }).catch(error => {
       console.error(error);
     });

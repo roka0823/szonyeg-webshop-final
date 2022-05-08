@@ -14,14 +14,18 @@ export class AppComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   loggedInUser?: firebase.default.User | null;
+  username: string = "";
 
   constructor(private observer: BreakpointObserver, private authService: AuthService) {
+
   }
 
   ngOnInit(){
     this.authService.isUserLoggedIn().subscribe(user => {
       this.loggedInUser = user;
       localStorage.setItem('user', JSON.stringify(this.loggedInUser));
+      // @ts-ignore
+      this.username = this.loggedInUser.email;
     }, error => {
       console.error(error)
       localStorage.setItem('user', JSON.stringify('null'));

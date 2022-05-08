@@ -1,0 +1,39 @@
+.rug-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+
+  gap: 20px;
+}
+
+
+.rug {
+  box-shadow: 0 2px 1px grey;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #B87333;
+
+  img {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+
+  .button-container {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .rug-container {
+    display: block;
+  }
+
+  .rug {
+    margin-top: 10px;
+  }
+
+
+}
