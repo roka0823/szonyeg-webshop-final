@@ -1,4 +1,21 @@
-<h2>Home page</h2>
-<p>Some text here</p>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<h3>Some footer text</h3>
+<h1>Szőnyegek</h1>
+
+<div class="rug-container">
+  <div class="rug" *ngFor="let rug of rugs">
+      <img src="{{rug.image}}" alt="rug_image" />
+      <div><b>{{rug.name}}</b></div>
+      <div>Price: {{rug.price}}</div>
+      <div>CartedCount: {{rug.cartedCount}}</div>
+
+      <div class="button-container">
+        <button mat-raised-button color="brown" (click)="onAddToCart(rug)">+</button>
+        <button mat-raised-button color="brown" (click)="onRemoveFromCart(rug)">-</button>
+        <button mat-raised-button color="warn" (click)="onDelete(rug.id)">Törlés</button>
+      </div>
+      <mat-divider></mat-divider>
+  </div>
+
+</div>
+
+
+
